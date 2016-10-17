@@ -7,7 +7,8 @@
 <%@page import="java.util.Map"%>
 <%@page import="com.seed.beans.Product"%>
 <%@page import="com.seed.util.ProductsRepository"%>
-<%@page import="com.seed.util.ProductsRepositoryInMemoryImpl"%><html>
+<%@page import="com.seed.util.ProductsRepositoryInMemoryImpl"%>
+<%@page import="com.seed.beans.Customer"%><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
@@ -20,14 +21,16 @@ Customer Billing details
 <br/>
 
 <%-- TODO:1 Use standard action (jsp:usebean) to obtain scoped variable "userDetails" from session scope--%>
-
+	<jsp:useBean id="userDetails" class="com.seed.beans.Customer" scope="session"></jsp:useBean>
 
 <%-- TODO:2 get "name" property of "userDetails" and display it--%>
-
+	
+	Name = ${userDetails.name }<br>
+		
 <%-- TODO:3 get "mobile" property of "userDetails" and display it--%>
-
+	Mobile  number : ${userDetails.mobile }<br>
 <%-- TODO:4 get "pincode" property of "userDetails" and display it--%>
-
+	Pin Code : ${userDetails.pincode }<br>
 
 <%-- TODO:5 Use JSTL action (forEach) and EL EXPRESSIONS to display product details from 
 		scoped variable "wishList" using its property "productSet"
@@ -38,11 +41,11 @@ Wish-List contents
 <br/>
 
 <table>
-	<c:forEach items="<%-- TODO:6 required EL EXPRESSION to get property of wishList--%>" var="productId">
+	<c:forEach items="${wishList.productSet }" var="productId">
 	
 		<tr>
-			<td><%-- TODO:7 required EL EXPRESSION to display id of product--%></td>
-			<td><%-- TODO:8 required EL EXPRESSION to display name of product--%></td>
+			<td>${productId}</td>
+			<td>${productEntries.productId}</td>
 			<td><%-- TODO:9 required EL EXPRESSION to display id of product--%></td>
 		</tr>
 	

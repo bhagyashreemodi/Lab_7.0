@@ -21,10 +21,12 @@
 		scoped variable "productIds" and "entries.products" as HTML CHECKBOXES
 --%>
 
-	<c:forEach var="product"  items="${entries.products.key}">
+	<c:forEach var="product"  items="${productIds}">
 		
 		<c:out value="${product}"></c:out>
-		
+		<input type="checkbox" name="bookID" 
+				value=${product }
+				/><c:out value="${product }"></c:out><br/>
 	
 	</c:forEach>
 
